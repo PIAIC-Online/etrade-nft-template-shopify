@@ -1,6 +1,6 @@
 import Hero from 'components/hero';
 import Slider from 'components/slider';
-import CategorySlider from 'components/yasir/category-images';
+import CategorySlider, { CategoryHeading } from 'components/yasir/category-images';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -21,6 +21,7 @@ export default async function HomePage() {
     <Slider />
     </div>
     <div>
+      <CategoryHeading />
       <CategorySlider />
     </div>
       {/* <ThreeItemGrid /> */}

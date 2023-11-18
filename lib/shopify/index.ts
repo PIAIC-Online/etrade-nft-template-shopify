@@ -564,6 +564,75 @@ export async function getSliderSection() {
 }
 
 
+///************************************* */
+//************CATEGORY SECTION************ */
+//************************************ */
+//**********TEXT SECTION*********** */
+
+
+
+export async function getCategorySection() {
+  const query = `query CategoryText {
+    metaobject(handle: {handle: "categories", type: "categories_text"}) {
+      fields {
+        key
+        value
+        reference {
+          ... on MediaImage {
+            id
+            image {
+              url
+            }
+          }
+        }
+      }
+    }
+  }`
+
+
+try {
+  const res = await shopifyFetch<any>({ query, cache: 'no-store' });
+  // console.log(res)
+  if (res.body && res.body.data && res.body.data.metaobject && res.body.data.metaobject.fields) {
+    const fields = res.body.data.metaobject.fields;
+
+    const values = fields.map((item: any) => item.value);
+    const imageUrls = fields
+      .filter((item: any) => item.reference && item.reference.image && item.reference.image.url)
+      .map((item: any) => item.reference.image.url);
+
+
+    return {
+      values: values.slice().reverse(),
+      imageUrls: imageUrls,
+    };
+  } else {
+    // Handle potential missing data
+    return {
+      values: [],
+      imageUrls: [],
+    };
+  }
+} 
+catch (error) {
+  // Handle errors
+  console.error('Error fetching hero section:', error);
+  throw error;
+}
+
+}
+
+
+
+
+///************************************* */
+//************CATEGORY SECTION************ */
+//************************************ */
+//**********SLIDER SECTION*********** */
+
+
+
+
 
 
 export async function getCategoryImages() {
