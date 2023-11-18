@@ -1,6 +1,7 @@
 import Hero from 'components/hero';
 import Slider from 'components/slider';
-import CategorySlider, { CategoryHeading } from 'components/yasir/category-images';
+import CategoryHeading from 'components/yasir/category-heading';
+import CategorySlider from 'components/yasir/category-images';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
