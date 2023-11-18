@@ -1,8 +1,6 @@
-import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
 import Hero from 'components/hero';
-import Footer from 'components/layout/footer';
 import Slider from 'components/slider';
+import CategorySlider from 'components/yasir/category-images';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -22,12 +20,14 @@ export default async function HomePage() {
     <Hero />
     <Slider />
     </div>
-
-      <ThreeItemGrid />
+    <div>
+      <CategorySlider />
+    </div>
+      {/* <ThreeItemGrid /> */}
       <Suspense>
-        <Carousel />
+        {/* <Carousel /> */}
         <Suspense>
-          <Footer />
+          {/* <Footer /> */}
         </Suspense>
       </Suspense>
     </>

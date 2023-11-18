@@ -1,28 +1,13 @@
 
 import { getSliderSection } from 'lib/shopify';
 import Image from 'next/image';
-// import Slider from 'react-slick';
-// import "~slick-carousel/slick/slick-theme.css";
-// import "~slick-carousel/slick/slick.css";
 
 const Slider = async () => {
    const res = await getSliderSection();
-  // console.log(res);
-
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 1,
-  //   centerMode: true,
-  //   focusOnSelect: true,
-  // };
-
+  
   
 
   return (
-    // <Slider {...settings}>
 
 <div className="mr-28 my-40 ml-10 flex">
     {res.map((res: any, index: number) => (
@@ -44,7 +29,6 @@ const Slider = async () => {
       </div>
     ))}
   </div>
-  // </Slider>
 
   );
 };

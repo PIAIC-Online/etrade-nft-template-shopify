@@ -562,3 +562,53 @@ export async function getSliderSection() {
   // console.log(data)
   return data
 }
+
+
+
+
+export async function getCategoryImages() {
+  const query = `query CategorySlider {
+  metaobject(handle: {handle: "category-slider", type: "category_slider"}) {
+    field(key: "images") {
+      key
+      references(first: 10) {
+        nodes {
+          ... on Metaobject {
+            fields {
+              key
+              value
+              reference {
+                ... on MediaImage {
+                  image {
+                    url
+                    altText
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+
+
+const res = await shopifyFetch<any>({ query, cache: 'no-store' });
+// console.log(res.body.data.metaobject.field.references.nodes)
+  const data = res.body.data.metaobject.field.references.nodes.map((item: any) =>{
+  const returnCategoryObjects: any = {};
+    item.fields.forEach((item: any) => {
+      // console.log(item)
+      returnCategoryObjects['key'] = item.key;
+      if(item.reference !== null){
+        returnCategoryObjects['imageURL'] = item.reference.image.url;
+      } else {
+        returnCategoryObjects['value'] = item.value;
+      }
+    });
+    return returnCategoryObjects
+  })
+  // console.log(data)
+  return data
+}
