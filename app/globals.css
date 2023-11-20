@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light; /* Override dark theme with light theme */
   }
 }
 

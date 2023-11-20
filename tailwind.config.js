@@ -5,6 +5,12 @@ module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        'sm': '576px', // Small screens
+        'md': '768px', // Medium screens
+        'lg': '992px', // Large screens
+        'xl': '1200px', // Extra large screens
+      },
       fontFamily: {
         sans: ['var(--font-geist-sans)']
       },

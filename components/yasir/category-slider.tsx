@@ -1,44 +1,4 @@
 'use client'
-// import Image from "next/image";
-// import React from "react";
-
-// interface Category {
-    
-//     id: number;
-//     name: string;
-//     image: string;
-//   }
-
-// interface response {
-//     [x: string]: any;
-//     res: Category[]
-// }
-
-// const CategorySliderObject: React.FC<response> =  (data) => {
-
-//     // console.log(res.res.map((item: any) => item))
-    
-
-// return(
-//     <div className='flex gap-4 m-20 justify-center items-center'>
-        
-//         {
-//             data.res.map((item: any, index: number) => (
-//                 <div key={index} className='rounded-md outline-4 outline-black p-2 shadow-md'>
-//                     <Image className='rounded-md' src={item.imageURL} alt="Image" width={150} height={150} />
-//                     <p className='text-center m-2'>{item.value} </p>
-//                 </div>
-//             ))
-
-//         }
-//     </div>
-       
-// )
-// };
-
-// export default CategorySliderObject;
-
-
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -86,39 +46,66 @@ const CategorySliderObject: React.FC<Response> = (data) => {
   const isNextDisabled = currentIndex === totalItems - itemsPerPage;
 
   return (
-    <div className="mx-20 overflow-hidden relative">
-      <div className="flex gap-4" ref={sliderRef}>
+    <>
+
+<div className="ml-28 M=my-28 mr-20 overflow-x-auto max-w-full flex pr-28">
+      
+      <div>
+      
+      <div className='flex items-center'> 
+          <div>
+            <Image src="https://cdn.shopify.com/s/files/1/0624/4214/3939/files/basket_Icon-removebg-preview.png?v=1700163196" 
+            alt={`Image `} width={20} height={20} />
+          </div>
+          <div>
+            <p className='mx-2 text-pink-500 text-sm'>Categories</p>
+          </div>
+      </div>
+  
+      <p className=' mt-2 text-4xl'>Browse by Category</p>
+      </div>
+      <div className='flex gap-6 ml-auto'>
+      <button
+        className="transform  bg-gray-300 px-2 py-1 rounded  -translate-y-1" 
+        onClick={prevSlide}
+        disabled={isPreviousDisabled}
+      >
+        P
+      </button>
+      <button
+        className="transform  bg-gray-300 px-2 py-1  rounded"
+        onClick={nextSlide}
+        disabled={isNextDisabled}
+
+      >
+        N
+      </button>
+        </div>
+
+  </div>
+
+
+
+    <div className=" ml-28 overflow-hidden">
+      <div className="flex  " ref={sliderRef}>
         {data.res.map((item: any, index: number) => (
           <div key={index} className="flex-shrink-0">
-            <div className="rounded-md outline-4 outline-black p-2 shadow-md">
+            <div className="rounded-md outline-4 outline-black p-2 shadow-md relative max-w-xs overflow-hidden bg-cover bg-no-repeat">
               <Image
-                className="rounded-md"
+                className="rounded-md ax-w-xs transition duration-300 ease-in-out hover:scale-110"
                 src={item.imageURL}
                 alt="Image"
                 width={150}
                 height={150}
-              />
+                />
               <p className="text-center m-2">{item.value}</p>
             </div>
           </div>
         ))}
       </div>
-      <button
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-300 px-2 py-1 rounded"
-        onClick={prevSlide}
-        disabled={isPreviousDisabled}
-      >
-        Previous
-      </button>
-      <button
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 px-2 py-1 rounded"
-        onClick={nextSlide}
-        disabled={isNextDisabled}
-
-      >
-        Next
-      </button>
+     
     </div>
+        </>
   );
 };
 

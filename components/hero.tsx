@@ -23,7 +23,10 @@ const Hero = async () => {
         </div>
 
         <p className='mb-20 mt-2 text-6xl'>{values[2]}</p>
-        <p className='text-center text-black text-xl bg-gray-200 w-36 hover:scale-105 transition-all duration-300 hover:cursor-pointer px-4 py-2 rounded-lg'>{values[3]}</p>
+        <div className='text-center text-black text-xl bg-gray-200 w-36 
+        hover:scale-105 transition-none duration-300 hover:cursor-pointer px-4 py-2 rounded-lg'>
+           <p>{values[3]}</p> 
+        </div>
       
     </div>
   );

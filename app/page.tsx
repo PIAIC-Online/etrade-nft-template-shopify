@@ -1,6 +1,5 @@
 import Hero from 'components/hero';
 import Slider from 'components/slider';
-import CategoryHeading from 'components/yasir/category-heading';
 import CategorySlider from 'components/yasir/category-images';
 import { Suspense } from 'react';
 
@@ -16,13 +15,18 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-    <div className='flex'>
-
-    <Hero />
-    <Slider />
+    {/* @ts-ignore */}
+    <marquee behavior="scroll" direction="left"> NFT Market</marquee>
+    
+    <div className='flex flex-wrap xl:flex-nowrap'>
+        <Hero />
+        <Slider />
     </div>
+    
+
+    
     <div>
-      <CategoryHeading />
+    
       <CategorySlider />
     </div>
       {/* <ThreeItemGrid /> */}
