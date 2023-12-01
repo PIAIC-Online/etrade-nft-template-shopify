@@ -64,16 +64,16 @@ const CategorySliderObject: React.FC<Response> = (data) => {
   
       <p className=' mt-2 text-4xl'>Browse by Category</p>
       </div>
-      <div className='flex gap-6 ml-auto'>
+      <div className='flex gap-6 ml-auto '>
       <button
-        className="transform  bg-gray-300 px-2 py-1 rounded  -translate-y-1" 
+        className="transform text-slate-600 bg-slate-200 w-14 px-2 py-1 my-5 rounded -translate-y-4" 
         onClick={prevSlide}
         disabled={isPreviousDisabled}
       >
         P
       </button>
       <button
-        className="transform  bg-gray-300 px-2 py-1  rounded"
+        className="transform text-slate-600 bg-slate-200 w-14 px-2 py-1 my-5 rounded -translate-y-4"
         onClick={nextSlide}
         disabled={isNextDisabled}
 

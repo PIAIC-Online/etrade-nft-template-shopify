@@ -1,7 +1,7 @@
 import Hero from 'components/hero';
-import Slider from 'components/slider';
 import CategorySlider from 'components/yasir/category-images';
 import { Suspense } from 'react';
+
 
 export const runtime = 'edge';
 
@@ -15,16 +15,10 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-    {/* @ts-ignore */}
-    <marquee behavior="scroll" direction="left"> NFT Market</marquee>
-    
-    <div className='flex flex-wrap xl:flex-nowrap'>
+        
         <Hero />
-        <Slider />
-    </div>
-    
-
-    
+       
+        
     <div>
     
       <CategorySlider />
