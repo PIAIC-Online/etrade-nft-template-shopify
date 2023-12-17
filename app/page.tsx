@@ -1,3 +1,4 @@
+
 import Hero from 'components/hero';
 import CategorySlider from 'components/yasir/category-images';
 import { Suspense } from 'react';
@@ -17,7 +18,8 @@ export default async function HomePage() {
     <>
         
         <Hero />
-       
+     
+
         
     <div>
     

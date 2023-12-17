@@ -51,7 +51,7 @@
 
 import { getHeroSection } from 'lib/shopify';
 import Image from 'next/image';
-import Slider from './slider';
+import Slider from './slider-fetcher';
 
 const Hero = async () => {
   const data = await getHeroSection();
@@ -64,7 +64,7 @@ const Hero = async () => {
 
   return (
     <div className='flex bg-[url(/bgimage.jpg)] bg-cover bg-no-repeat bg-center relative mt-10 mb-20' >
-      <div className="ml-28 my-28 mr-20" >
+      <div className="ml-28 my-28 mr-20  w-1/3" >
         <div className='flex'>
           <div>
             <Image src={imageUrls[0]} alt={`Image `} width={20} height={20} />
@@ -80,8 +80,9 @@ const Hero = async () => {
           <p>{values[3]}</p>
         </div>
       </div>
-      <div>
+      <div className=' w-2/3'>
         <Slider />
+        
       </div>
     </div>
   );
